@@ -42,6 +42,7 @@
         _bgImg.layer.cornerRadius = 10*adjustRatio;
         _bgImg.layer.masksToBounds = YES;
         _bgImg.userInteractionEnabled = YES;
+        _bgImg.contentMode = UIViewContentModeScaleAspectFill;
         [self.contentView addSubview:_bgImg];
         [_bgImg mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
