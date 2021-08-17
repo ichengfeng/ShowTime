@@ -28,7 +28,7 @@
 #define ADJUST_HEIGHT(a) (a*SCREEN_HEIGHT)/568.0
 #define ADJUST_WIDTH(a)  (a*SCREEN_WIDTH)/375.0
 
-#define BaseUrl @"http://192.168.12.202:8181"
-#define ImgBaseUrl @"http://192.168.12.202:8181/img?name="
+#define BaseUrl @"http://192.168.10.141:8181"
+#define ImgBaseUrl @"http://192.168.10.141:8181/img?name="
 
 #endif /* ShowTimePrefixHeader_pch */

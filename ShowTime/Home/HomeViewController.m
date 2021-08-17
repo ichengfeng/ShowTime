@@ -48,18 +48,16 @@
         _mainTableView.showsVerticalScrollIndicator = NO;
         _mainTableView.showsHorizontalScrollIndicator = NO;
         _mainTableView.tableFooterView = UIView.new;
+        _mainTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
         _mainTableView.dataSource = self;
         _mainTableView.delegate = self;
-        _mainTableView.estimatedRowHeight = 122*adjustRatio;
+        _mainTableView.estimatedRowHeight = 158*adjustRatio;
         [self.view addSubview:_mainTableView];
         [_mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.navBar.mas_bottom);
             make.left.right.equalTo(self.view);
             make.bottom.mas_equalTo(0);
         }];
-        
-        _mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//
     }
     return _mainTableView;
 }
@@ -89,7 +87,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen.width, CGFLOAT_MIN)];
+    return nil;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

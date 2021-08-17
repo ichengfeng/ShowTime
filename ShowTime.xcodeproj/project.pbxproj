@@ -583,7 +583,7 @@
 				GCC_PREFIX_HEADER = ShowTime/SupportingFile/ShowTimePrefixHeader.pch;
 				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = ShowTime/SupportingFile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,7 +605,7 @@
 				GCC_PREFIX_HEADER = ShowTime/SupportingFile/ShowTimePrefixHeader.pch;
 				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = ShowTime/SupportingFile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
