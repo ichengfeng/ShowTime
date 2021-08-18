@@ -9,7 +9,7 @@
 #import "TabBarViewController.h"
 
 #import "HomeViewController.h"
-#import "MineViewController.h"
+#import "CenterViewController.h"
 #import "CollectionViewController.h"
 
 @interface TabBarViewController ()
@@ -74,7 +74,7 @@
     UINavigationController *firstNavigationController = [[UINavigationController alloc] initWithRootViewController:firstViewController];
     firstNavigationController.tabBarItem = itemArray[0];
     
-    MineViewController *secondViewController = [[MineViewController alloc]init];
+    CenterViewController *secondViewController = [[CenterViewController alloc]init];
     UINavigationController *secondNavigationController = [[UINavigationController alloc]initWithRootViewController:secondViewController];
     secondNavigationController.tabBarItem = itemArray[1];
     

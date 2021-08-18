@@ -42,13 +42,13 @@
             make.width.height.mas_equalTo(64*adjustRatio);
 //            make.height.mas_equalTo(1.75*64*adjustRatio);
         }];
-//        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithActionBlock:^(id  _Nonnull sender) {
-//            BigPictureViewController *bigPicVC = [[BigPictureViewController alloc]init];
-//            bigPicVC.imageUrl = self.model.user_icon;
-//            bigPicVC.hidesBottomBarWhenPushed = YES;
-//            [[UIViewController topMost] presentViewController:bigPicVC animated:YES completion:nil];
-//        }];
-//        [_userHeadPic addGestureRecognizer:tapGes];
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithActionBlock:^(id  _Nonnull sender) {
+            BigPictureViewController *bigPicVC = [[BigPictureViewController alloc]init];
+            bigPicVC.imageUrl = self.model.user_icon;
+            bigPicVC.hidesBottomBarWhenPushed = YES;
+            [[UIViewController topMost] presentViewController:bigPicVC animated:YES completion:nil];
+        }];
+        [_userHeadPic addGestureRecognizer:tapGes];
     }
     return _userHeadPic;
 }

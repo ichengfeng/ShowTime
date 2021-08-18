@@ -15,9 +15,11 @@
 #import <YYCategories/YYCategories.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <SDWebImage/SDWebImage.h>
-
+#import <JXCategoryView/JXCategoryView.h>
+#import <JXPagingView/JXPagerView.h>
 
 #import "Screen.h"
+#import "NSString+Utils.h"
 #import "UIViewController+TopMostViewController.h"
 
 #endif /* STControl_h */

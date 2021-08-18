@@ -15,6 +15,8 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - IQKeyboardManager (6.5.6)
+  - JXCategoryView (1.5.9)
+  - JXPagingView/Pager (2.1.0)
   - Masonry (1.1.0)
   - MJExtension (3.3.0)
   - MJRefresh (3.5.0)
@@ -28,6 +30,8 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - IQKeyboardManager (~> 6.5.5)
+  - JXCategoryView (= 1.5.9)
+  - JXPagingView/Pager
   - Masonry
   - MJExtension
   - MJRefresh (~> 3.5.0)
@@ -38,6 +42,8 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - IQKeyboardManager
+    - JXCategoryView
+    - JXPagingView
     - Masonry
     - MJExtension
     - MJRefresh
@@ -47,12 +53,14 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
+  JXPagingView: ef48a5a2392252c68db7999de38f4761a2707e2a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 01704cca2b60a214c10761b6491eab74069d68a9
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 03efbf96541a71500a901673df5d9708450d8ed9
+PODFILE CHECKSUM: dcac11c75d8a288a808460e07d19f2ef043478fe
 
 COCOAPODS: 1.10.1

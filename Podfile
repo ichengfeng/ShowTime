@@ -14,5 +14,6 @@ target 'ShowTime' do
    pod 'MJRefresh','~> 3.5.0'
    pod 'MJExtension'
    pod 'IQKeyboardManager','~> 6.5.5'
-   
+   pod 'JXCategoryView','1.5.9'
+   pod 'JXPagingView/Pager'
 end

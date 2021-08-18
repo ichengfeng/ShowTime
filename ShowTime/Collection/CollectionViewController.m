@@ -8,6 +8,7 @@
 
 #import "CollectionViewController.h"
 #import "CollectionCell.h"
+#import "PictureCell.h"
 #import "UserListModel.h"
 #import "BigPictureViewController.h"
 
@@ -15,7 +16,9 @@
 
 @property(nonatomic,strong)UITableView *mainTableView;
 
-@property(nonatomic,strong)NSArray *dataArray;
+@property(nonatomic, strong)NSMutableArray *dataArray;
+
+@property(nonatomic,strong)NSMutableArray *heightArr;
 
 @property(nonatomic,strong)UserListModel *listModel;
 
@@ -28,10 +31,17 @@
     
     self.navTitle = @"列表";
     self.navBar.backBtn.hidden = YES;
+    
+    self.dataArray = [NSMutableArray array];
+    self.heightArr = [NSMutableArray array];
             
     MJWeakSelf
     self.mainTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
         [weakSelf networkForGetUserList];
+        
+        [weakSelf getHeightForContentList];
+        
     }];
     
     [self.mainTableView.mj_header beginRefreshing];
@@ -53,6 +63,18 @@
     }];
 }
 
+- (void)getHeightForContentList {
+    NSArray *indexs = @[@"1",@"2",@"3",@"8",@"9",@"10",@"11"];
+    for (int i = 0; i < indexs.count; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"IMG_MIMI_%@.jpg",indexs[i]];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [self.dataArray addObject:imageName];
+        CGFloat height = (Screen.width - 40)*(image.size.height/image.size.width);
+        [self.heightArr addObject:@(height)];
+    }
+    [self.mainTableView reloadData];
+}
+
 - (UITableView *)mainTableView {
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -66,42 +88,63 @@
         [_mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.navBar.mas_bottom);
             make.left.right.equalTo(self.view);
-            make.bottom.mas_equalTo(-Screen.tabBarHeight);
+            make.bottom.mas_equalTo(0);
         }];
     }
     return _mainTableView;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return  self.listModel ? self.listModel.data.count : 0;
+    return  section == 0 ? (self.listModel ? self.listModel.data.count : 0) : self.dataArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 64*adjustRatio + 2*16*adjustRatio;
+    if (indexPath.section == 0) {
+        return 64*adjustRatio + 2*16*adjustRatio;
+    }
+    return [self.heightArr[indexPath.row] floatValue];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellId = @"CollectionCell";
-    CollectionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!cell) {
-        cell = [[CollectionCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.section == 0) {
+        static NSString *cellId = @"CollectionCell";
+        CollectionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (!cell) {
+            cell = [[CollectionCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        if (self.listModel.data.count > indexPath.row) {
+            cell.model = self.listModel.data[indexPath.row];
+        }
+        return cell;
+    }else {
+        static NSString *cellId = @"PictureCell";
+        PictureCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (!cell) {
+            cell = [[PictureCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        if (self.dataArray.count > indexPath.row) {
+            cell.imgName = self.dataArray[indexPath.row];
+        }
+        return cell;
     }
-    if (self.listModel.data.count > indexPath.row) {
-        cell.model = self.listModel.data[indexPath.row];
-    }
-    return cell;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.listModel.data.count > indexPath.row) {
-        UserModel *model = self.listModel.data[indexPath.row];
-        BigPictureViewController *bigPicVC = [[BigPictureViewController alloc]init];
-        bigPicVC.imageUrl = model.user_icon;
-        bigPicVC.hidesBottomBarWhenPushed = YES;
-        [[UIViewController topMost] presentViewController:bigPicVC animated:YES completion:nil];
-    }
+//    if (self.listModel.data.count > indexPath.row) {
+//        UserModel *model = self.listModel.data[indexPath.row];
+//        BigPictureViewController *bigPicVC = [[BigPictureViewController alloc]init];
+//        bigPicVC.imageUrl = model.user_icon;
+//        bigPicVC.hidesBottomBarWhenPushed = YES;
+//        [[UIViewController topMost] presentViewController:bigPicVC animated:YES completion:nil];
+//    }
 }
 
 /*
