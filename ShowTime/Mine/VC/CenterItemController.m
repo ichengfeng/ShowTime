@@ -120,6 +120,10 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     GirlCardCell *cell = (GirlCardCell *)[self.collectionView dequeueReusableCellWithReuseIdentifier:@"GirlCardCell" forIndexPath:indexPath];
+    cell.layer.shadowColor = [UIColor colorWithHexString:@"C7C6B6"].CGColor;
+    cell.layer.shadowOffset = CGSizeMake(-2, -2);
+    cell.layer.shadowRadius = 2;
+    cell.layer.shadowOpacity = 0.8;
     if (indexPath.row < self.listDataArr.count) {
         PictureModel *model = self.listDataArr[indexPath.row];
         cell.index = indexPath.row;
@@ -127,53 +131,6 @@
     }
     
     return cell;
-    
-//    HomeIndexSingleModel *indexModel = self.listDataArr[indexPath.row];
-//    if ([indexModel.type isEqualToString:@"bigBlock"]) {
-//
-//        MarketingBigCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MarketingBigCell" forIndexPath:indexPath];
-//        cell.indexModel = indexModel;
-//
-//        return cell;
-//
-//    }else if ([indexModel.type isEqualToString:@"normalBlock"]) {
-//
-//        MarketNormalCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MarketNormalCell" forIndexPath:indexPath];
-//        cell.model = indexModel.activityModel;
-//        return cell;
-//
-//    }else if ([indexModel.type isEqualToString:@"smallBlock"]) {
-//
-//        MarketingMiniCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MarketingSmallCell" forIndexPath:indexPath];
-//        cell.model = indexModel.activityModel;
-//        return cell;
-//
-//    }else if ([indexModel.type isEqualToString:@"miniBlock"]) {
-//
-//        MarketingMiniCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MarketingMiniCell" forIndexPath:indexPath];
-//        cell.model = indexModel.activityModel;
-//        return cell;
-//
-//    }else {
-//        ProductHorizontalCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProductHorizontalCell" forIndexPath:indexPath];
-//        __weak typeof(self) weakSelf = self;
-//        cell.productHorizontalCellBlock = ^(NSInteger i) {
-//            ProductModel *model = indexModel.itemModel;
-//            if (i <= 1) {
-//                //首页收藏/取消收藏埋点
-//                [StatisticsManager addClick:weakSelf event:@"B210420112" paramters:@{@"shoucang":STR_NUM(i),@"positionIndex":STR_NUM(indexPath.row+1),@"xcm":model.xcm,@"shouyetab":STR_NUM([weakSelf.categoryModel.categoryId integerValue])} desc:@"首页收藏按钮点击"];
-//            }else if(i == 2){
-//                //首页加入直播计划埋点
-//                [StatisticsManager addClick:weakSelf event:@"B210420111" paramters:@{@"positionIndex":STR_NUM(indexPath.row+1),@"xcm":model.xcm,@"shouyetab":STR_NUM([weakSelf.categoryModel.categoryId integerValue])}];
-//            }
-//        };
-//        // 外界在此给Item添加模型数据
-//        ProductModel *model = indexModel.itemModel;
-//        model.index = indexPath.row;
-//        cell.productModel = model;
-//        [StatisticsManager addExpose:self event:@"B210420090" paramters:@{@"xcm":model.xcm,@"positionIndex":STR_NUM(indexPath.row),@"shouyetab":STR_NUM([self.categoryModel.categoryId integerValue])} desc:@"首页商品卡片"];
-//        return cell ;
-//    }
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

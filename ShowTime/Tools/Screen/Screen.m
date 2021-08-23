@@ -30,14 +30,14 @@
     return [self statusBarHeight] + 44;
 }
 /// 顶部安全距离
-//+ (CGFloat)safeAreaTop {
-//    if (@available(iOS 11.0, *)) {
-//        //用scene的项目需要注意
-//        return UIApplication.sharedApplication.windows.firstObject.safeAreaInsets.top;
-//    } else {
-//        return 0;
-//    }
-//}
++ (CGFloat)safeAreaTop {
+    if (@available(iOS 11.0, *)) {
+        //用scene的项目需要注意
+        return UIApplication.sharedApplication.windows.firstObject.safeAreaInsets.top;
+    } else {
+        return 0;
+    }
+}
 
 + (CGFloat)safeAreaBottom {
     if (@available(iOS 11.0, *)) {

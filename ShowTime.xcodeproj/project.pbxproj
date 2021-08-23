@@ -221,18 +221,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		04D29E8F26CCFE2C005236A9 /* SafeStr */ = {
-			isa = PBXGroup;
-			children = (
-				04D29EA626CD0BA7005236A9 /* Data */,
-				04D29E9D26CD0BA7005236A9 /* Dictionary */,
-				04D29EA026CD0BA7005236A9 /* number */,
-				04D29EA326CD0BA7005236A9 /* String */,
-				04D29E9A26CD0BA7005236A9 /* Url */,
-			);
-			path = SafeStr;
-			sourceTree = "<group>";
-		};
 		04D29E9326CD0163005236A9 /* WaterfallFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,8 +233,8 @@
 		04D29E9A26CD0BA7005236A9 /* Url */ = {
 			isa = PBXGroup;
 			children = (
-				04D29E9B26CD0BA7005236A9 /* NSURL+Params.m */,
 				04D29E9C26CD0BA7005236A9 /* NSURL+Params.h */,
+				04D29E9B26CD0BA7005236A9 /* NSURL+Params.m */,
 			);
 			path = Url;
 			sourceTree = "<group>";
@@ -254,19 +242,19 @@
 		04D29E9D26CD0BA7005236A9 /* Dictionary */ = {
 			isa = PBXGroup;
 			children = (
-				04D29E9E26CD0BA7005236A9 /* NSDictionary+Fetcher.m */,
 				04D29E9F26CD0BA7005236A9 /* NSDictionary+Fetcher.h */,
+				04D29E9E26CD0BA7005236A9 /* NSDictionary+Fetcher.m */,
 			);
 			path = Dictionary;
 			sourceTree = "<group>";
 		};
-		04D29EA026CD0BA7005236A9 /* number */ = {
+		04D29EA026CD0BA7005236A9 /* Number */ = {
 			isa = PBXGroup;
 			children = (
-				04D29EA126CD0BA7005236A9 /* NSNumber+Utils.m */,
 				04D29EA226CD0BA7005236A9 /* NSNumber+Utils.h */,
+				04D29EA126CD0BA7005236A9 /* NSNumber+Utils.m */,
 			);
-			path = number;
+			path = Number;
 			sourceTree = "<group>";
 		};
 		04D29EA326CD0BA7005236A9 /* String */ = {
@@ -281,10 +269,19 @@
 		04D29EA626CD0BA7005236A9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				04D29EA726CD0BA7005236A9 /* NSData+Utils.m */,
 				04D29EA826CD0BA7005236A9 /* NSData+Utils.h */,
+				04D29EA726CD0BA7005236A9 /* NSData+Utils.m */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		04D29EAE26CE4347005236A9 /* TopMost */ = {
+			isa = PBXGroup;
+			children = (
+				71D2722226C8D3B2008F2A7E /* UIViewController+TopMostViewController.h */,
+				71D2722126C8D3B1008F2A7E /* UIViewController+TopMostViewController.m */,
+			);
+			path = TopMost;
 			sourceTree = "<group>";
 		};
 		71D2707826C69FC0008F2A7E = {
@@ -391,12 +388,12 @@
 		71D270BE26C79BFE008F2A7E /* SupportingFile */ = {
 			isa = PBXGroup;
 			children = (
-				71D2709026C69FC3008F2A7E /* Assets.xcassets */,
-				71D2709226C69FC3008F2A7E /* LaunchScreen.storyboard */,
 				71D2709526C69FC3008F2A7E /* Info.plist */,
 				71D2709626C69FC3008F2A7E /* main.m */,
-				71D270C026C79CBF008F2A7E /* STControl.h */,
+				71D2709026C69FC3008F2A7E /* Assets.xcassets */,
+				71D2709226C69FC3008F2A7E /* LaunchScreen.storyboard */,
 				71D270BF26C79C74008F2A7E /* ShowTimePrefixHeader.pch */,
+				71D270C026C79CBF008F2A7E /* STControl.h */,
 			);
 			path = SupportingFile;
 			sourceTree = "<group>";
@@ -405,7 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				04D29E9326CD0163005236A9 /* WaterfallFlowLayout */,
-				04D29E8F26CCFE2C005236A9 /* SafeStr */,
 				043DDA4A26CA3653001A8E26 /* Screen */,
 				71D2722526C8DFA4008F2A7E /* NavBar */,
 				71D2722426C8D3BC008F2A7E /* Extension */,
@@ -416,8 +412,12 @@
 		71D2722426C8D3BC008F2A7E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				71D2722226C8D3B2008F2A7E /* UIViewController+TopMostViewController.h */,
-				71D2722126C8D3B1008F2A7E /* UIViewController+TopMostViewController.m */,
+				04D29EAE26CE4347005236A9 /* TopMost */,
+				04D29EA626CD0BA7005236A9 /* Data */,
+				04D29E9D26CD0BA7005236A9 /* Dictionary */,
+				04D29EA026CD0BA7005236A9 /* Number */,
+				04D29EA326CD0BA7005236A9 /* String */,
+				04D29E9A26CD0BA7005236A9 /* Url */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

@@ -58,6 +58,9 @@
             make.left.right.equalTo(self.view);
             make.bottom.mas_equalTo(0);
         }];
+        if ([_mainTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+            _mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _mainTableView;
 }

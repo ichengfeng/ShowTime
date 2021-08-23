@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 导航栏高
 + (CGFloat)navBarHeight;
 /// 顶部安全距离
-//+ (CGFloat)safeAreaTop;
++ (CGFloat)safeAreaTop;
 /// 底部安全距离
 + (CGFloat)safeAreaBottom;
 //tab 高度

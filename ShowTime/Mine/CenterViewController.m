@@ -160,9 +160,7 @@
     return self.titles.count;
 }
 
-
-- (void)mainTableViewDidScroll:(UIScrollView *)scrollView {
-    
+- (void)pagerView:(JXPagerView *)pagerView mainTableViewDidScroll:(UIScrollView *)scrollView {
     CGFloat topY = Screen.statusBarHeight+70*adjustRatio;
 
     CGFloat searchTopY = Screen.statusBarHeight + 20*adjustRatio;

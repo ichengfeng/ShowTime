@@ -45,6 +45,17 @@
     }];
     
     [self.mainTableView.mj_header beginRefreshing];
+    
+    //如果iOS的系统是11.0，会有这样一个宏定义“#define __IPHONE_11_0  110000”；如果系统版本低于11.0则没有这个宏定义
+    //    #ifdef __IPHONE_11_0
+    //    if ([self.mainTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+    //        self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    //    }
+    //    #endif
+    
+    if ([self.mainTableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+        self.mainTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 }
 
 - (void)networkForGetUserList {
@@ -78,7 +89,7 @@
 - (UITableView *)mainTableView {
     if (!_mainTableView) {
         _mainTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _mainTableView.backgroundColor = UIColor.whiteColor;
+        _mainTableView.backgroundColor = [UIColor colorWithHexString:@"C7CB6B"];
         _mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _mainTableView.delegate = self;
         _mainTableView.dataSource = self;

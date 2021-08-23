@@ -28,14 +28,6 @@
     
 }
 
-- (void)loadTabBarController {
-    
-    if (!_tabBarController) {
-        self.tabBarController = [[TabBarViewController alloc]init];
-    }
-    self.window.rootViewController = self.tabBarController;
-}
-
 - (void)sceneDidDisconnect:(UIScene *)scene  API_AVAILABLE(ios(13.0)){
     // Called as the scene is being released by the system.
     // This occurs shortly after the scene enters the background, or when its session is discarded.
